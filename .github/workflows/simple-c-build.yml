@@ -10,7 +10,7 @@ jobs:
   build-gcc:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - run: make -C src CC=gcc
 
   build-tcc:
@@ -20,5 +20,5 @@ jobs:
         run: |
           sudo apt update
           sudo apt -y install tcc
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - run: make -C src CC=tcc
