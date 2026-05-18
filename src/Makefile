@@ -1,5 +1,7 @@
+CC = gcc
+
 run: main
 	./main
 
 main: main.c
-	gcc main.c -o main
+	$(CC) main.c -o main

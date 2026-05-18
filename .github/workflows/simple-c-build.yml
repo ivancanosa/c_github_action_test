@@ -7,8 +7,16 @@ on:
       - master
 
 jobs:
-  build:
+  build-gcc:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: make -C src
+      - run: make -C src CC=gcc
+
+  build-tcc:
+    runs-on: ubuntu-latest
+    steps:
+      - run: apt update
+      - run: apt -y install tcc
+      - uses: actions/checkout@v3
+      - run: make -C src CC=tcc
