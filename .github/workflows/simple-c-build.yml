@@ -26,3 +26,28 @@ jobs:
           sudo apt -y install tcc
       - uses: actions/checkout@v6
       - run: make -C src CC=tcc
+
+  produce:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          mkdir output
+          echo "compiled data" > output/result.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: output/
+
+  consume:
+    runs-on: ubuntu-latest
+    needs: produce
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: build-output
+
+      - run: |
+          cat result.txt
+
+
