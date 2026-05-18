@@ -1,0 +1,1 @@
+[![Simple C Build](https://github.com/ivancanosa/c_github_action_test/actions/workflows/simple-c-build.yml/badge.svg)](https://github.com/ivancanosa/c_github_action_test/actions/workflows/simple-c-build.yml)
