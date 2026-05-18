@@ -2,6 +2,9 @@ name: Simple C Build
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches:
+      - master
   push:
     branches:
       - master
@@ -10,7 +13,8 @@ jobs:
   build-gcc:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - name: Pulls the code 
+        uses: actions/checkout@v6
       - run: make -C src CC=gcc
 
   build-tcc:
